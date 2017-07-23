@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+.select2-container-multi .select2-choices {
+  height: auto;
+}
+.select2-container-multi .select2-choices .select2-search-choice {
+  padding: .5em .5em .5em 1.5em;
+  border: 1px solid #aaa;
+  background: #fff;
+  color: #666;
+  margin: 3px 0 3px 3px;
+}
+.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close {
+  font-size: 1em;
+  margin: .25em 0 0 .25em;
+  background-image: none;
+  text-decoration: none;
+}
+.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close:before {
+  content: '×';
+  color: #3498db;
+  font-weight: bold;
+}
+
+.select2-container-multi .select2-choices .select2-search-field input {
+  font-family: 'Open Sans', sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font: 16px/1.6 'Open Sans', sans-serif;
+  color: #666;
+}
+
+h1, h2, h, h3, h4, h5, h6 {
+  line-height: 1.1;
+  margin-bottom: .5rem;
+}
+
+.blockform label, .blockform .radio-label--group, .blockform input[type="submit"] {
+  margin: 1em 0 0 0;
+  display: block;
+}
+.blockform .radio-label {
+  display: inline;
+  padding-right: 1em;
+}
+.blockform input[type="text"], .blockform textarea, .blockform select {
+  display: block;
+}
+.blockform input[type="text"], .blockform textarea {
+  width: 100%;
+  border: 1px solid #aaa;
+}
+
+article {
+  display: inline-block;
+  font-size: 1rem;
+  vertical-align: top;
+  width: 66.66667%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
+}
+
+
+.article-header, .article-intro, .article-footer {
+  padding: 1em;
+  display: inline-block;
+  font-size: 1rem;
+  vertical-align: top;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
+}
+@media (min-width: 500px) {
+  .article-header, .article-intro, .article-footer {
+    text-align: center;
+  }
+}
+
+.article-header h1 {
+  text-transform: uppercase;
+  color: #1BA1E2;
+}
+
+ul {
+  margin-top: 0;
+  padding-left: 1.1em;
+}
+
+.btn-major {
+  background: #fff;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  color: #3498db;
+  padding: .25em 1em;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+.btn-major:hover {
+  background: #3498db;
+  color: #fff;
+}
