@@ -19,7 +19,7 @@ var manageMemberTable;
 				var BOXIN_GUARD = $("#BOXIN_GUARD").val();
 				var BOXIN_DATE = $("#datepicker").val();
 				var BOXIN_TIME = $("#BOXIN_TIMEIN").val();
-
+				var BOXIN_RDI = $("#BOXIN_RDI").val();
 					if(BOXIN_BOXCODE == "") {
 						$("#BOXIN_BOXCODE").closest('.form-group').addClass('has-error');
 						
@@ -55,10 +55,17 @@ var manageMemberTable;
 						$("#BOXIN_TIMEIN").closest('.form-group').removeClass('has-error');
 						$("#BOXIN_TIMEIN").closest('.form-group').addClass('has-success');				
 					}
+					if(BOXIN_RDI == "") {
+						$("#BOXIN_RDI").closest('.form-group').addClass('has-error');
+						
+					} else {
+						$("#BOXIN_RDI").closest('.form-group').removeClass('has-error');
+						$("#BOXIN_RDI").closest('.form-group').addClass('has-success');				
+					}
 				
 					
 
-			if(BOXIN_BOXCODE && BOXIN_DUTYOPERATOR && BOXIN_GUARD && BOXIN_DATE && BOXIN_TIME) {
+			if(BOXIN_BOXCODE && BOXIN_DUTYOPERATOR && BOXIN_GUARD && BOXIN_DATE && BOXIN_TIME && BOXIN_RDI) {
 				//submi the form to server
 				$.ajax({
 					url : form.attr('action'),

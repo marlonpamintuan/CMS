@@ -43,7 +43,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/skin-blue.min.css">
-  <link rel="stylesheet" href="../../dist/css/scroll.css">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

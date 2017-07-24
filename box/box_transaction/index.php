@@ -518,11 +518,12 @@ desired effect
 
         <div class="removeMessages"></div>
 
-        <table class="table table-striped table-hover " id="manageMemberTable">          
+        <table class="table table-striped table-hover" id="manageMemberTable">          
           <thead>
             <tr>
               <th class="bg-primary"></th>
 
+            <th class="bg-primary">RDI NO</th>
             <th class="bg-primary">CUSTOMER</th>
               <th class="bg-primary">BOX CODE</th>
               <th class="bg-primary">TOTAL</th>

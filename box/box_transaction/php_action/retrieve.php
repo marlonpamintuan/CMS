@@ -26,6 +26,7 @@ while ($row = $query->fetch_assoc()) {
 //  <li><a type="button" href=""  data-toggle="modal" data-target="#deliveryMemberModal" onclick="delivery('.$row['BOOKING_ID'].')"> <span class="fa fa-spinner"></span> For-Delivery</a></li>		
 	$output['data'][] = array(
 		$actionButton,
+		$row['BOXIN_RDI'],
 		$row['CUSTOMER_NAME'],
 			$row['BOXIN_BOXCODE'],
 			$row['BOXIN_TOTAL'],

@@ -518,9 +518,55 @@ desired effect
             <!-- /.box-header -->
             <div class="box-body">
             <form method="POST" id="createMemberForm" action="php_action/create.php"> 
+                 <div class="row">
+                 <div class="col-md-12">
+  <div class="messages"></div>
+                 </div>
+                 </div>
+                 <div class="row">
+          <div class="col-md-6">
+
+            <label class="control-label">Return Dry Ice Number</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-user"></i>
+              </div>
+              
+                <input type="number" placeholder="Return Dry Ice Number" name="BOXIN_RDI"  id="BOXIN_RDI"  class="form-control" required="" >
+            
+              
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label class="control-label">Duty Operator</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-user"></i>
+              </div>
+              
+                <input type="text" placeholder="Duty Operator" name="BOXIN_DUTYOPERATOR"  id="BOXIN_DUTYOPERATOR"  class="form-control" required="" >
+            
+              
+            </div>
+          </div>
+           <div class="col-md-3">
+            <label class="control-label">Duty Guard</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-user"></i>
+              </div>
+              
+                <input type="text" placeholder="Duty Guard" name="BOXIN_GUARD"  id="BOXIN_GUARD"  class="form-control" required="">
+            
+              
+            </div>
+          </div>
+        
+       </div>
+           <br>
             <div class="row">
             <div class="col-md-12">
-                <div class="messages"></div>
+              
               <div class="form-group">
                 <label>Select Box</label>
                 <?php $querys = "select BOXOUT_BOXCODE from boxout";
@@ -540,34 +586,8 @@ desired effect
               </div>
             </div>
             </div>
-             <div class="row">
-          <div class="col-md-6">
-            <label class="control-label">Duty Operator</label>
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-user"></i>
-              </div>
-              
-                <input type="text" placeholder="Duty Operator" name="BOXIN_DUTYOPERATOR"  id="BOXIN_DUTYOPERATOR"  class="form-control" required="" >
-            
-              
-            </div>
-          </div>
-           <div class="col-md-6">
-            <label class="control-label">Duty Guard</label>
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-user"></i>
-              </div>
-              
-                <input type="text" placeholder="Duty Guard" name="BOXIN_GUARD"  id="BOXIN_GUARD"  class="form-control" required="">
-            
-              
-            </div>
-          </div>
-        
-       </div>
-       <br>
+       
+    
            <div class="row">
            <div class="col-md-6">
             <label class="control-label">Date</label>
