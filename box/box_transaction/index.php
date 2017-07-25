@@ -502,13 +502,75 @@ desired effect
 
     <!-- Main content -->
     <section class="content">
+    <!-- ################### MODAL FOR ADDING MORE DATA ###################-->
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title"><span class="fa fa-edit"></span>&nbsp;ADD MORE DATA</h4>
+        </div>
+        <div class="modal-body">
+        <form method="POST" id="box_form">
+         <div class="row">
+            <div class="col-md-12">
+              <div class="messages"></div>
+              <div class="form-group">
+                <label>Select Return Dry Ice Number</label>
+                <?php $querys = "select BOXIN_RDI from boxin group by BOXIN_RDI";
+                $result = mysqli_query($link,$querys);
+                ?>
+                <select class="form-control select2" data-placeholder="Select RDI" name="BOXIN_RDI2" id="BOXIN_RDI2" style="width: 100%;" required>
+                <?php while($row = mysqli_fetch_array($result)){
+              $BOXIN_RDI2 = $row['BOXIN_RDI'];
+                ?> <option value="<?php echo $BOXIN_RDI2;?>"><?php echo $BOXIN_RDI2;?></option><?php
+                }?>
+               
+                </select>
+              </div>
+            </div>
+            </div>
+           <div class="row">
+            <div class="col-md-12">
+              
+              <div class="form-group">
+                <label>Select Box</label>
+                <?php $querys = "select BOXOUT_BOXCODE from boxout";
+                $result = mysqli_query($link,$querys);
+                ?>
+                <select class="form-control select2" data-placeholder="Select a Box" multiple="multiple" name="BOXIN_BOXCODE2[]" id="BOXIN_BOXCODE2" style="width: 100%;" required>
+                <?php while($row = mysqli_fetch_array($result)){
+              $BOXOUT_BOXCODE = $row['BOXOUT_BOXCODE'];
+                ?> <option value="<?php echo $BOXOUT_BOXCODE;?>"><?php echo $BOXOUT_BOXCODE;?></option><?php
+                }?>
+               
+                </select>
+              </div>
+            </div>
+            </div>
+            <input type="submit" class="btn btn-primary pull-right"/><br><br>
+            </form>
+              <div id='loadingmessage' style='display:none;' class="text-center">
+  <img src='../../images/loading.gif' style="width:12%;"/><br>
+ 
+</div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+    <!-- ################### MODAL FOR ADDING MORE DATA ###################-->
       <div class="row">
         <div class="col-xs-12">
 
           <div class="box box-primary color-palette-box">
             <div class="box-header with-border ">
       	   <h3 class="box-title"><i class="fa fa-list-alt text-primary">&nbsp;</i>Returned Dry Ice Box List</h3>
-           
+           <h3 class="box-title pull-right">
+           <button class="btn btn-danger btn-sm" id="addMemberModalBtn" data-toggle="modal" data-target="#myModal"><strong><span class="fa fa-edit"></span>&nbsp;ADD MORE DATA</strong></button></h3>
        
             </div>
             <!-- /.box-header -->
@@ -742,6 +804,7 @@ desired effect
 <script src="../../plugins/select2/select2.full.min.js"></script>
 <script src="../../dist/js/dt.js"></script>
 <script src="custom/js/index.js"></script>
+<script src="custom/js/ajax.js"></script>
 <script>
   $(function () {
     //Initialize Select2 Elements

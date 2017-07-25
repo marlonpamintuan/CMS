@@ -655,13 +655,12 @@ desired effect
               <table id="example1" class="datatable table table-hover table-striped table-condensed" >
                 <thead>
 				<tr>
-         <th class="bg-primary">Option</th>
-           <th  class="bg-primary">Container Serial Number</th>
-           <th  class="bg-primary">Container Type</th>
-          <th  class="bg-primary">Container Details</th>
+         <th class="bg-primary"></th>
+           <th  class="bg-primary">CONTAINER SERIAL NUMBER</th>
+           <th  class="bg-primary">CONTAINER TYPE</th>
+          <th  class="bg-primary">CONTAINER DETAILS</th>
      
-				  <th class="bg-primary">Date Created</th>
-				   <th class="bg-primary">Date Modified</th>
+				  <th class="bg-primary">DATE CREATED</th>
 				 
 				  </tr>
                 </thead>
@@ -694,7 +693,7 @@ $HYDRO_DATEMODIFIED = $row['HYDRO_DATEMODIFIED'];
 <td><?php echo $CONTAINER_TYPE; ?></td>
 <td><?php echo $CYLINDER_DETAILS; ?></td>
 <td><?php echo $HYDRO_DATECREATED; ?></td>
-<td><?php echo $HYDRO_DATEMODIFIED; ?></td>
+
               </tr>
 <?php
 }
@@ -707,7 +706,7 @@ $HYDRO_DATEMODIFIED = $row['HYDRO_DATEMODIFIED'];
          <th class=""></th>
         <th class=""></th>
       <th class=""></th>
-    <th class=""></th>
+   
    
         <th class=""></th>
       <th class=""></th>

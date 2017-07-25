@@ -572,20 +572,19 @@ desired effect
               <table id="example1" class="datatable table table-hover table-striped table-condensed" >
                 <thead>
 				<tr>
-         <th class="text-center bg-primary">Option</th>
+         <th class="text-center bg-primary"></th>
            <th class="bg-primary">ID</th>
-           <th class="bg-primary">Name</th>
-          <th class="bg-primary">Contact Number</th>
-          <th class="bg-primary">Email</th> 
-				  <th class="bg-primary">Address</th>
-				  <th class="bg-primary">Date Created</th>
-				   <th class="bg-primary">Date Modified</th>
+           <th class="bg-primary">COMPANY NAME</th>
+          <th class="bg-primary">CONTACT NUMBER</th>
+          <th class="bg-primary">EMAIL ADDRESS</th> 
+				  <th class="bg-primary">COMPLETE ADDRESS</th>
+
 				 
 				  </tr>
                 </thead>
                 <tbody>
                         <?php
-$query = "select * from customer where CUSTOMER_STATUS !='inactive'";
+$query = "select CUSTOMER_ID,CUSTOMER_NAME,CUSTOMER_CONTACTNUMBER,CUSTOMER_EMAIL,CUSTOMER_ADDRESS from customer where CUSTOMER_STATUS !='inactive'";
 $result = mysqli_query($link,$query);
 if(mysqli_num_rows($result)>0){
 while($row = mysqli_fetch_array($result)){
@@ -594,8 +593,7 @@ $CUSTOMER_NAME = $row['CUSTOMER_NAME'];
 $CUSTOMER_CONTACTNUMBER = $row['CUSTOMER_CONTACTNUMBER'];
 $CUSTOMER_EMAIL = $row['CUSTOMER_EMAIL'];
 $CUSTOMER_ADDRESS = $row['CUSTOMER_ADDRESS'];
-$CUSTOMER_DATECREATED = $row['CUSTOMER_DATECREATED'];
-$CUSTOMER_DATEMODIFIED = $row['CUSTOMER_DATEMODIFIED'];
+
 ?>
    <tr>
                
@@ -616,8 +614,6 @@ $CUSTOMER_DATEMODIFIED = $row['CUSTOMER_DATEMODIFIED'];
 <td><?php echo $CUSTOMER_CONTACTNUMBER; ?></td>
 <td><?php echo $CUSTOMER_EMAIL; ?></td>
 <td><?php echo $CUSTOMER_ADDRESS; ?></td>
-<td><?php echo $CUSTOMER_DATECREATED; ?></td>
-<td><?php echo $CUSTOMER_DATEMODIFIED; ?></td>
               </tr>
 <?php
 }
@@ -627,14 +623,12 @@ $CUSTOMER_DATEMODIFIED = $row['CUSTOMER_DATEMODIFIED'];
                 </tbody>
                 <tfoot>
                 <tr>
-                <th class="text-center bg-primary">Option</th>
-         <th class="bg-primary">ID</th>
-           <th class="bg-primary">Name</th>
-          <th class="bg-primary">Contact Number</th>
-          <th class="bg-primary">Email</th> 
-          <th class="bg-primary">Address</th>
-          <th class="bg-primary">Date Created</th>
-           <th class="bg-primary">Date Modified</th>
+                <th class="text-center bg-primary"></th>
+    <th class="bg-primary">ID</th>
+           <th class="bg-primary">COMPANY NAME</th>
+          <th class="bg-primary">CONTACT NUMBER</th>
+          <th class="bg-primary">EMAIL ADDRESS</th> 
+          <th class="bg-primary">COMPLETE ADDRESS</th>
           
 				  </tr>
                 </tfoot>

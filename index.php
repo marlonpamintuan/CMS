@@ -485,23 +485,23 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">ADD NEW TODO LIST</h4>
+        <h4 class="modal-title"><span class="ion ion-clipboard"></span> ADD NEW TASK</h4>
       </div>
       <div class="modal-body">
        <form action="" method="post" id="todo_form">
           <div class="row">
             <div class="col-md-12">
-              <label class="control-label">Todo List Info<span class="text-primary">*</span></label>
+              <label class="control-label">TASK INFORMATION</label>
             <div class="input-group">
               <div class="input-group-addon">
                 <i class="fa fa-question"></i>
               </div>
-                <input type="text" placeholder="Todo List Info" name="TODO_INFO" id="TODO_INFO"  class="form-control" required>
+                <input type="text" placeholder="TASK INFORMATION" name="TODO_INFO" id="TODO_INFO"  class="form-control" required>
             </div>
             </div>
           </div><br>
           <div class="pull-right">
-          <input type="submit" class="btn btn-md btn-success"/>
+          <input type="submit" class="btn btn-md btn-primary" value="ADD / SAVE"/>
           </div><br><br>
        </form>
 

@@ -98,6 +98,7 @@ $(document).ready(function() {
 
 							// reload the datatables
 							manageMemberTable.ajax.reload(null, false);
+						
 							// this function is built in function of datatables;
 
 						} else {

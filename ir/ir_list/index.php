@@ -664,14 +664,14 @@ desired effect
             <tr>
               <th class="bg-primary"></th>
 
-            <th class="bg-primary">IR No.</th>
-          <th class="bg-primary">DR No.</th>
-           <th class="bg-primary">Customer</th>
-          <th class="bg-primary">Container</th>
+            <th class="bg-primary">IR NO</th>
+          <th class="bg-primary">DR NO</th>
+           <th class="bg-primary">CUSTOMER</th>
+          <th class="bg-primary">CONTAINER</th>
 
-          <th class="bg-primary">Returned Date</th>
-          <th class="bg-primary">Date Created</th>
-          <th class="bg-primary">Date Modified</th>
+          <th class="bg-primary">RETURNED DATE</th>
+          <th class="bg-primary">DATE CREATED</th>
+          
                         </tr>
           </thead>
         </table>

@@ -566,17 +566,16 @@ desired effect
               <table id="example1" class="datatable table table-striped table-condensed" >
                 <thead>
 				<tr>
-         <th class="bg-primary">Option</th>
-                <th class="bg-primary">First Name</th>
-                  <th class="bg-primary">Middle Name</th>
-                  <th class="bg-primary">Last Name</th>
+         <th class="bg-primary"></th>
+                <th class="bg-primary">FIRST NAME</th>
+                  <th class="bg-primary">MIDDLE NAME</th>
+                  <th class="bg-primary">LAST NAME</th>
   
-				  <th class="bg-primary">Email</th>
+				  <th class="bg-primary">EMAIL ADDRESS</th>
                 
-				  <th class="bg-primary">Username</th>
-          <th class="bg-primary">Access</th>
-				  <th class="bg-primary">Date Created</th>
-				   <th class="bg-primary">Date Modified</th>
+				  <th class="bg-primary">USERNAME</th>
+          <th class="bg-primary">ACCESS</th>
+		
 				 
 				  </tr>
                 </thead>
@@ -595,8 +594,7 @@ $USER_ACCESS = $row['USER_ACCESS'];
 $USER_USERNAME = $row['USER_USERNAME'];
 $USER_ACCESS = $row['USER_ACCESS'];
 $USER_PASSWORD = $row['USER_PASSWORD'];
-$USER_DATECREATED = $row['USER_DATECREATED'];
-$USER_DATEMODIFIED = $row['USER_DATEMODIFIED'];
+
 ?>
    <tr>
                
@@ -615,8 +613,7 @@ $USER_DATEMODIFIED = $row['USER_DATEMODIFIED'];
 <td><?php echo $USER_EMAIL; ?></td>
 <td><?php echo $USER_USERNAME; ?></td>
 <td><?php echo $USER_ACCESS; ?></td>
-<td><?php echo $USER_DATECREATED; ?></td>
-<td><?php echo $USER_DATEMODIFIED; ?></td>
+
                 </tr>
 <?php
 }
@@ -634,8 +631,7 @@ $USER_DATEMODIFIED = $row['USER_DATEMODIFIED'];
 				  <th></th>
 				  <th></th>
 				  <th></th>
-          <th></th>
-				  <th></th>
+      
 				  
 				  </tr>
                 </tfoot>

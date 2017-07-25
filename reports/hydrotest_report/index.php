@@ -605,7 +605,7 @@ desired effect
           <div class="box box-success color-palette-box">
             <div class="box-header with-border ">
       	   <h3 class="box-title"><i class="fa fa-flask text-success">&nbsp;</i>Containers Under Hydro Testing </h3>
-           <a class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-flask"></span>&nbsp;<strong>SELECT CONTAINER NUMBER</strong></a>
+           <a class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-flask"></span>&nbsp;<strong>SELECT CONTAINER NUMBER</strong></a>
           
             </div>
             <!-- /.box-header -->
@@ -645,17 +645,17 @@ desired effect
             </div>
             
             </div>
-            <input type="submit" value="Search" class="btn btn-primary pull-right"/>
+            <input type="submit" value="Search" class="btn btn-primary pull-right btn-sm"/>
               <!-- /.form group -->
               </form>
-              <br><br>
+              <br><hr>
                   <table id="example1" class="datatable table table-hover table-striped table-condensed " >
                 <thead>
         <tr>
         
-           <th style="width:15%;" class="bg-primary">Container Number</th>
+           <th style="width:15%;" class="bg-primary">CONTAINER NUMBER</th>
 
-           <th style="width:15%;" class="bg-primary">Fixed How Many Times</th>
+           <th style="width:15%;" class="bg-primary">FIXED HOW MANY TIMES</th>
 
          
           </tr>

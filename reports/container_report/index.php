@@ -608,8 +608,8 @@ desired effect
                 <thead>
 				<tr>
         <th style="width:8%;" class="bg-primary"></th>
-           <th class="bg-primary">Transaction Date</th>
-          <th class="bg-primary">Number of Containers Left</th>
+           <th class="bg-primary">TRANSACTION DATE</th>
+          <th class="bg-primary">NUMBER OF CONTAINERS LEFT</th>
          
 				  </tr>
                 </thead>

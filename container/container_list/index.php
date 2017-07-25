@@ -734,19 +734,16 @@ desired effect
               <table id="example1" class="datatable table table-hover table-striped table-condensed" >
                 <thead>
 				<tr>
-         <th class="bg-primary"Option</th>
-           <th class="bg-primary">Container Serial Number</th>
-          <th class="bg-primary">Container Type</th>
-
-          <th class="bg-primary">Container Details</th>
-				  <th class="bg-primary">Date Created</th>
-				   <th class="bg-primary">Date Modified</th>
-				   <th class="bg-primary">Date Recovered</th>
+         <th class="bg-primary"></th>
+           <th class="bg-primary">CONTAINER SERIAL NUMBER</th>
+          <th class="bg-primary">CONTAINER TYPE</th>
+          <th class="bg-primary">CONTAINER DETAILS</th>
+				   <th class="bg-primary">DATE RECOVERED</th>
 				  </tr>
                 </thead>
                 <tbody>
                         <?php
-$query = "select * from cylinder where CYLINDER_STATUS =''";
+$query = "select CYLINDER_ID,CYLINDER_REFERENCEID,CYLINDER_TYPE,CYLINDER_DETAILS,CYLINDER_DATERECOVER from cylinder where CYLINDER_STATUS =''";
 $result = mysqli_query($link,$query);
 if(mysqli_num_rows($result)>0){
 while($row = mysqli_fetch_array($result)){
@@ -754,8 +751,6 @@ $CYLINDER_ID = $row['CYLINDER_ID'];
 $CYLINDER_REFERENCEID = $row['CYLINDER_REFERENCEID'];
 $CONTAINER_TYPE = $row['CYLINDER_TYPE'];
 $CYLINDER_DETAILS = $row['CYLINDER_DETAILS'];
-$CYLINDER_DATECREATED = $row['CYLINDER_DATECREATED'];
-$CYLINDER_DATEMODIFIED = $row['CYLINDER_DATEMODIFIED'];
 $CYLINDER_DATERECOVER = $row['CYLINDER_DATERECOVER'];
 ?>
    <tr>
@@ -773,8 +768,6 @@ $CYLINDER_DATERECOVER = $row['CYLINDER_DATERECOVER'];
 <td><?php echo $CYLINDER_REFERENCEID; ?></td>
 <td><?php echo $CONTAINER_TYPE; ?></td>
 <td><?php echo $CYLINDER_DETAILS; ?></td>
-<td><?php echo $CYLINDER_DATECREATED; ?></td>
-<td><?php echo $CYLINDER_DATEMODIFIED; ?></td>
 <td><?php echo $CYLINDER_DATERECOVER; ?></td>
               </tr>
 <?php
@@ -785,13 +778,11 @@ $CYLINDER_DATERECOVER = $row['CYLINDER_DATERECOVER'];
                 </tbody>
                 <tfoot>
                 <tr>
-               <th class="bg-primary">Option</th>
+               <th class="bg-primary"></th>
            <th class="bg-primary">Container Serial Number</th>
 <th class="bg-primary">Container Type</th>
 
           <th class="bg-primary">Container Details</th>
-          <th class="bg-primary">Date Created</th>
-           <th class="bg-primary">Date Modified</th>
             <th class="bg-primary">Date Recovered</th>
           
 				  </tr>

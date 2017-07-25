@@ -30,8 +30,8 @@ while ($row = $query->fetch_assoc()) {
 		$row['CUSTOMER_NAME'],
 		$row['CYLINDER_REFERENCEID'],
 		$row['IR_RETURNDATE'],
-		$row['IR_DATECREATED'],
-		$row['IR_DATEMODIFIED']
+		$row['IR_DATECREATED']
+		
 		
 	);
 

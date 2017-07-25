@@ -3,46 +3,52 @@
 require_once '../../../basefunction/database_connection.php';
 require_once '../../../basefunction/security.php';
 //if form is submitted
+date_default_timezone_set('Asia/Manila');
+	$BOXIN_BOXCODE2 = $_POST['BOXIN_BOXCODE2'];
+	$BOXIN_RDI2 = $_POST['BOXIN_RDI2'];
+$query = mysqli_query($link,"select * from boxin where BOXIN_RDI='$BOXIN_RDI2'");
+$row = mysqli_fetch_array($query);
+$BOXIN_DUTYOPERATOR = $row['BOXIN_DUTYOPERATOR'];
+$BOXIN_GUARD = $row['BOXIN_GUARD'];
+$BOXIN_DATE = $row['BOXIN_DATE'];
+$BOXIN_TIMEIN = $row['BOXIN_TIMEIN'];
+$BOXIN_DATECREATED = date('m-d-Y H:i:s');
 
-if($_POST) {	
 
-	$validator = array('success' => false, 'messages' => array());
+foreach($BOXIN_BOXCODE2 as $j) {
+$select = mysqli_query($link,"select * from boxout where BOXOUT_BOXCODE='$j'");
+while($row = mysqli_fetch_array($select))
+{
+$CUSTOMER_ID = $row['CUSTOMER_ID'];
+$BOXOUT_DICEWEIGHT = $row['BOXOUT_DICEWEIGHT'];
+$BOXOUT_BOXWEIGHT = $row['BOXOUT_BOXWEIGHT'];
+$BOXOUT_TOTAL = $row['BOXOUT_TOTAL'];
+$BOXOUT_BOXSTATUS = $row['BOXOUT_BOXSTATUS'];
+$BOXOUT_TIMEOUT = $row['BOXOUT_TIMEOUT'];
+$BOXOUT_DUTYOPERATOR = $row['BOXOUT_DUTYOPERATOR'];
+$BOXOUT_GUARD = $row['BOXOUT_GUARD'];
+$BOXOUT_GATEPASS = $row['BOXOUT_GATEPASS'];
+$BOXOUT_DATE = $row['BOXOUT_DATE'];
 
-	$BOOKING_PSENDER = security($_POST['BOOKING_PSENDER']);
-	$BOOKING_PCONTACTNUMBER = security($_POST['BOOKING_PCONTACTNUMBER']);
-	$BOOKING_PCITY = security($_POST['BOOKING_PCITY']);
-	$BOOKING_PADDRESS = security($_POST['BOOKING_PADDRESS']);
-	$BOOKING_PLANDMARK = security($_POST['BOOKING_PLANDMARK']);
-	$BOOKING_DCONSIGNEE = security($_POST['BOOKING_DCONSIGNEE']);
-	$BOOKING_DCONTACTNUMBER = security($_POST['BOOKING_DCONTACTNUMBER']);
-	$BOOKING_DCITY = security($_POST['BOOKING_DCITY']);
-	$BOOKING_DADDRESS = security($_POST['BOOKING_DADDRESS']);
-	$BOOKING_DLANDMARK = security($_POST['BOOKING_DLANDMARK']);
-	$BOOKING_TYPE = security($_POST['BOOKING_TYPE']);
-	$BOOKING_WEIGHT = security($_POST['BOOKING_WEIGHT']);
-	$BOOKING_SIZE = security($_POST['BOOKING_SIZE']);
-	$BOOKING_REMARKS = security($_POST['BOOKING_REMARKS']);
-	$BOOKING_DESCRIPTION = security($_POST['BOOKING_DESCRIPTION']);
-	$BOOKING_INSURANCE = security($_POST['BOOKING_INSURANCE']);
-	$BOOKING_PAYMENT = security($_POST['BOOKING_PAYMENT']);
-	$BOOKING_PRICE = security($_POST['BOOKING_PRICE']);
-	$USER_ID = security($_POST['USER_ID']);
-	$BOOKING_DATE = date('Y-m-d',strtotime('+6 hours'));
-	$BOOKING_DATECREATED= date("m-d-Y H:i:s", strtotime('+6 hours'));
-	$sql = "INSERT INTO booking (USER_ID,BOOKING_PSENDER,BOOKING_PCONTACTNUMBER,BOOKING_PCITY,BOOKING_PADDRESS,BOOKING_PLANDMARK,BOOKING_DCONSIGNEE,BOOKING_DCONTACTNUMBER,BOOKING_DCITY,BOOKING_DADDRESS,BOOKING_DLANDMARK,BOOKING_TYPE,BOOKING_WEIGHT,BOOKING_SIZE,BOOKING_REMARKS,BOOKING_INSURANCE,BOOKING_PRICE,BOOKING_STATUS,BOOKING_DATE,BOOKING_DATECREATED,BOOKING_BRANCH,BOOKING_PAYMENT,BOOKING_DESCRIPTION) VALUES ('$USER_ID','$BOOKING_PSENDER','$BOOKING_PCONTACTNUMBER','$BOOKING_PCITY','$BOOKING_PADDRESS','$BOOKING_PLANDMARK','$BOOKING_DCONSIGNEE','$BOOKING_DCONTACTNUMBER','$BOOKING_DCITY','$BOOKING_DADDRESS','$BOOKING_DLANDMARK','$BOOKING_TYPE','$BOOKING_WEIGHT','$BOOKING_SIZE','$BOOKING_REMARKS','$BOOKING_INSURANCE','$BOOKING_PRICE','request','$BOOKING_DATE','$BOOKING_DATECREATED','Manila','$BOOKING_PAYMENT','$BOOKING_DESCRIPTION')";
-	$query = $link->query($sql);
 
-	if($query === TRUE) {			
-		$validator['success'] = true;
-		$validator['messages'] = "Successfully Added";		
-	} else {		
-		$validator['success'] = false;
-		$validator['messages'] = "Error while adding the member information";
-	}
-
-	// close the database connection
-	$link->close();
-
-	echo json_encode($validator);
-
+$insert = mysqli_query($link,"insert into boxin(BOXIN_DUTYOPERATOR,BOXIN_GUARD,BOXIN_DUTYOPERATOROUT,BOXIN_GUARDOUT,CUSTOMER_ID,BOXIN_BOXCODE,BOXIN_DICEWEIGHT,BOXIN_BOXWEIGHT,BOXIN_TOTAL,BOXIN_STATUS,BOXIN_TIMEOUT,BOXIN_TIMEIN,BOXIN_GATEPASS,BOXIN_DATE,BOXIN_DATEOUT,BOXIN_DATECREATED,BOXIN_RDI) VALUES('$BOXIN_DUTYOPERATOR','$BOXIN_GUARD','$BOXOUT_DUTYOPERATOR','$BOXOUT_GUARD','$CUSTOMER_ID','$j','$BOXOUT_DICEWEIGHT','$BOXOUT_BOXWEIGHT','$BOXOUT_TOTAL','$BOXOUT_BOXSTATUS','$BOXOUT_TIMEOUT','$BOXIN_TIMEIN','$BOXOUT_GATEPASS','$BOXIN_DATE','$BOXOUT_DATE','$BOXIN_DATECREATED','$BOXIN_RDI2')");
 }
+}
+if($insert)
+{
+	foreach($BOXIN_BOXCODE2 as $i) 
+	{
+		$update = mysqli_query($link,"update cylinder set CYLINDER_STATUS='' where CYLINDER_REFERENCEID='$i'");
+	}
+if($update){
+	foreach($BOXIN_BOXCODE2 as $k) 
+	{
+		$delete = mysqli_query($link,"delete from boxout where BOXOUT_BOXCODE ='$k'");
+	}
+	if($delete){
+	echo 'done';
+}
+}
+}
+
+?>

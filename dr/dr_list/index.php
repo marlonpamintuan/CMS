@@ -582,14 +582,14 @@ Direct Receipt
           <thead>
             <tr>
              <th class="bg-primary"></th>
-                   <th class="bg-primary">DR NO.</th>
-               <th class="bg-primary">Customer</th>          
-              <th class="bg-primary">Since</th>
-              <th class="bg-primary">Cylinder</th>
-             <th class="bg-primary">Due</th>
-          <th class="bg-primary">Days</th>
-          <th class="bg-primary">Status</th>
-           <th class="bg-primary">Date</th>
+                   <th class="bg-primary">DR NO</th>
+               <th class="bg-primary">CUSTOMER</th>          
+              <th class="bg-primary">SINCE</th>
+              <th class="bg-primary">CYLINDER</th>
+             <th class="bg-primary">DUE</th>
+          <th class="bg-primary">DAYS</th>
+          <th class="bg-primary">STATUS</th>
+           <th class="bg-primary">DATE</th>
           
              
             </tr>

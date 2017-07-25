@@ -599,13 +599,13 @@ desired effect
                 <thead>
 				<tr>
         
-           <th class="bg-primary">Customer</th>
-          <th class="bg-primary">Since</th>
-          <th class="bg-primary">DR Number</th> 
-          <th class="bg-primary">Container</th>
-				  <th class="bg-primary">Due</th>
-          <th class="bg-primary">Days</th>
-          <th class="bg-primary">Status</th>
+           <th class="bg-primary">CUSTOMER</th>
+          <th class="bg-primary">SINCE</th>
+          <th class="bg-primary">DR NUMBER</th> 
+          <th class="bg-primary">CONTAINER</th>
+				  <th class="bg-primary">DUE</th>
+          <th class="bg-primary">DAYS</th>
+          <th class="bg-primary">STATUS</th>
 			
 				 
 				  </tr>

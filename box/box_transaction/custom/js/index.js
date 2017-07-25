@@ -24,98 +24,26 @@ $(document).ready(function() {
 			var form = $(this);
 
 			// validation
-					var BOOKING_PSENDER = $("#BOOKING_PSENDER").val();
-					var BOOKING_PCONTACTNUMBER = $("#BOOKING_PCONTACTNUMBER").val();
-					var BOOKING_PCITY = $("#BOOKING_PCITY").val();
-					var BOOKING_PADDRESS = $("#BOOKING_PADDRESS").val();
-					var BOOKING_PLANDMARK = $("#BOOKING_PLANDMARK").val();
-					var BOOKING_DCONSIGNEE = $("#BOOKING_DCONSIGNEE").val();
-					var BOOKING_DCONTACTNUMBER = $("#BOOKING_DCONTACTNUMBER").val();
-					var BOOKING_DCITY = $("#BOOKING_DCITY").val();
-					var BOOKING_DADDRESS = $("#BOOKING_DADDRESS").val();
-					var BOOKING_DLANDMARK = $("#BOOKING_DLANDMARK").val();
-					var BOOKING_TYPE = $("#BOOKING_TYPE").val();
-					var BOOKING_WEIGHT = $("#BOOKING_WEIGHT").val();
-					var BOOKING_SIZE = $("#BOOKING_SIZE").val();
-					var BOOKING_REMARKS = $("#BOOKING_REMARKS").val();
-					var BOOKING_INSURANCE = $("#BOOKING_INSURANCE").val();
-					var BOOKING_PRICE = $("#BOOKING_PRICE").val();
-		
+					var BOXIN_BOXCODE2= $("#BOXIN_BOXCODE2").val();
+					var BOXIN_RDI2 = $("#BOXIN_RDI2").val();
+					
 
-			if(BOOKING_PSENDER == "") {
-						$("#BOOKING_PSENDER").closest('.input-group').addClass('has-error');
+			if(BOXIN_BOXCODE2 == "") {
+						$("#BOXIN_BOXCODE2").closest('.input-group').addClass('has-error');
 						
 					} else {
-						$("#BOOKING_PSENDER").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_PSENDER").closest('.input-group').addClass('has-success');				
+						$("#BOXIN_BOXCODE2").closest('.input-group').removeClass('has-error');
+						$("#BOXIN_BOXCODE2").closest('.input-group').addClass('has-success');				
 					}
 
-					if(BOOKING_PCONTACTNUMBER == "") {
-						$("#BOOKING_PCONTACTNUMBER").closest('.input-group').addClass('has-error');
+					if(BOXIN_RDI2 == "") {
+						$("#BOXIN_RDI2").closest('.input-group').addClass('has-error');
 					} else {
-						$("#BOOKING_PCONTACTNUMBER").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_PCONTACTNUMBER").closest('.input-group').addClass('has-success');				
+						$("#BOXIN_RDI2").closest('.input-group').removeClass('has-error');
+						$("#BOXIN_RDI2").closest('.input-group').addClass('has-success');				
 					}
 
-					if(BOOKING_PCITY == "") {
-						$("#BOOKING_PCITY").closest('.input-group').addClass('has-error');
-						//$("#BOOKING_PCITY").after('<p class="text-danger">The Contact field is required</p>');
-					} else {
-						$("#BOOKING_PCITY").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_PCITY").closest('.input-group').addClass('has-success');				
-					}
-
-					if(BOOKING_PADDRESS == "") {
-						$("#BOOKING_PADDRESS").closest('.input-group').addClass('has-error');
-					} else {
-						$("#BOOKING_PADDRESS").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_PADDRESS").closest('.input-group').addClass('has-success');				
-					}
-				
-					if(BOOKING_DCONSIGNEE == "") {
-						$("#BOOKING_DCONSIGNEE").closest('.input-group').addClass('has-error');
-						} else {
-						$("#BOOKING_DCONSIGNEE").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_DCONSIGNEE").closest('.input-group').addClass('has-success');				
-					}
-					if(BOOKING_DCONTACTNUMBER == "") {
-						$("#BOOKING_DCONTACTNUMBER").closest('.input-group').addClass('has-error');
-					} else {
-						$("#BOOKING_DCONTACTNUMBER").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_DCONTACTNUMBER").closest('.input-group').addClass('has-success');				
-					}
-					if(BOOKING_DCITY == "") {
-						$("#BOOKING_DCITY").closest('.input-group').addClass('has-error');
-				} else {
-						$("#BOOKING_DCITY").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_DCITY").closest('.input-group').addClass('has-success');				
-					}
-					if(BOOKING_DADDRESS == "") {
-						$("#BOOKING_DADDRESS").closest('.input-group').addClass('has-error');
-					} else {
-						$("#BOOKING_DADDRESS").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_DADDRESS").closest('.input-group').addClass('has-success');				
-					}
-										if(BOOKING_TYPE == "") {
-						$("#BOOKING_TYPE").closest('.input-group').addClass('has-error');
-					} else {
-						$("#BOOKING_TYPE").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_TYPE").closest('.input-group').addClass('has-success');				
-					}
-						if(BOOKING_PAYMENT == "") {
-						$("#BOOKING_PAYMENT").closest('.input-group').addClass('has-error');
-					} else {
-						$("#BOOKING_PAYMENT").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_PAYMENT").closest('.input-group').addClass('has-success');				
-					}
-						
-						if(BOOKING_PRICE == "") {
-						$("#BOOKING_PRICE").closest('.input-group').addClass('has-error');
-					} else {
-						$("#BOOKING_PRICE").closest('.input-group').removeClass('has-error');
-						$("#BOOKING_PRICE").closest('.input-group').addClass('has-success');				
-					}
-					if(BOOKING_PSENDER && BOOKING_PCONTACTNUMBER && BOOKING_PCITY && BOOKING_PADDRESS && BOOKING_DCONSIGNEE && BOOKING_DCONTACTNUMBER && BOOKING_DCITY && BOOKING_DADDRESS && BOOKING_PRICE && BOOKING_PAYMENT) {
+					if(BOXIN_BOXCODE2 && BOXIN_RDI2) {
 					
 				//submi the form to server
 				$.ajax({

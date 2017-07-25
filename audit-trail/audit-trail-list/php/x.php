@@ -15,11 +15,11 @@ echo 'done';
   <table id="example1" class="datatable table table-hover table-striped table-condensed" >
     <thead>
 			<tr>
-        <th class="bg-primary">Module</th>
-        <th class="bg-primary">Action</th>
-        <th class="bg-primary">Information</th>
-        <th class="bg-primary">Date and Time</th>
-        <th class="bg-primary">System User</th>           
+        <th class="bg-primary">MODULE</th>
+        <th class="bg-primary">ACTION</th>
+        <th class="bg-primary">INFORMATION</th>
+        <th class="bg-primary">DATE AND TIME</th>
+        <th class="bg-primary">SYSTEM USER</th>           
 			</tr>
     </thead>
       <tbody>
