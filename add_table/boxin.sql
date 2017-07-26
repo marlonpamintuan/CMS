@@ -1,0 +1,73 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jul 26, 2017 at 06:29 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `cts`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `boxin`
+--
+
+CREATE TABLE `boxin` (
+  `BOXIN_ID` int(11) NOT NULL,
+  `BOXIN_RDI` text NOT NULL,
+  `BOXIN_DUTYOPERATOR` text NOT NULL,
+  `BOXIN_GUARD` text NOT NULL,
+  `BOXIN_DUTYOPERATOROUT` text NOT NULL,
+  `BOXIN_GUARDOUT` text NOT NULL,
+  `CUSTOMER_ID` text NOT NULL,
+  `BOXIN_BOXCODE` text NOT NULL,
+  `BOXIN_DICEWEIGHT` text NOT NULL,
+  `BOXIN_BOXWEIGHT` text NOT NULL,
+  `BOXIN_TOTAL` text NOT NULL,
+  `BOXIN_STATUS` text NOT NULL,
+  `BOXIN_TIMEOUT` text NOT NULL,
+  `BOXIN_TIMEIN` text NOT NULL,
+  `BOXIN_GATEPASS` text NOT NULL,
+  `BOXIN_DATE` text NOT NULL,
+  `BOXIN_DATEOUT` text NOT NULL,
+  `BOXIN_DATECREATED` text NOT NULL,
+  `BOXIN_DATEMODIFIED` text NOT NULL,
+  `BOXIN_DATEDELETED` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `boxin`
+--
+ALTER TABLE `boxin`
+  ADD PRIMARY KEY (`BOXIN_ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `boxin`
+--
+ALTER TABLE `boxin`
+  MODIFY `BOXIN_ID` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

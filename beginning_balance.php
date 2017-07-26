@@ -36,6 +36,8 @@ if(!empty($_REQUEST['status'])){
 ?>
 <html>
 <head>
+<title>CMS | CSV Uploader</title>
+<link rel="icon" href="login/logo2.jpg">
 <style>
 body{
 	background: url('login/bg2.jpg');

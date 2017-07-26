@@ -24,7 +24,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid']))
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>DR Add</title>
+  <title>CMS | Add DR</title>
     <link rel="icon" href="../../login/logo2.jpg">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
