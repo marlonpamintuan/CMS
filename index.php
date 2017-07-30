@@ -1,5 +1,6 @@
 <?php
 include "basefunction/database_connection.php";
+include "basefunction/timezone.php";
 session_start();
 error_reporting(0);
 $userid = $_SESSION['session_userid'];
@@ -9,6 +10,8 @@ $firstname = $fetch['USER_FIRSTNAME'];
 $lastname = $fetch['USER_LASTNAME'];
 $access = $fetch['USER_ACCESS'];
 $USER_AUDIT = $fetch['USER_AUDIT'];
+$TODO_DATECREATED = date("m-d-Y H:i:s");
+$TODO_DATEONLY = date("m-d-Y");
 
 if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
     header("location: login/");
@@ -19,8 +22,11 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 {
 
   $request_id = $_REQUEST['delete_id'];
-  $info = "Added cyinder:";
-  $audit_query = mysqli_query($link,"insert into audittrail(AUDITTRAIL_ACTIVITY,AUDITTRAIL_ACTION,AUDITTRAIL_INFO,AUDITTRAIL_DATE,AUDITTRAIL_USER) VALUES('Cylinder Module','Added new cylinder','$info $CYLINDER_REFERENCEID','$CYLINDER_DATECREATED','$userid')");
+  $select_task = mysqli_query($link,"select * from todo where TODO_ID='$request_id'");
+  $row_task = mysqli_fetch_array($select_task);
+  $TASK_INFO = $row_task['TODO_INFO'];
+  $info = "Deleted task:";
+  $audit_query = mysqli_query($link,"insert into audittrail(AUDITTRAIL_ACTIVITY,AUDITTRAIL_ACTION,AUDITTRAIL_INFO,AUDITTRAIL_DATE,AUDITTRAIL_DATEONLY,AUDITTRAIL_USER) VALUES('Task Module','Deleted task','$info $TASK_INFO','$TODO_DATECREATED','$TODO_DATEONLY','$userid')");
   if($audit_query){
 
 
@@ -648,10 +654,9 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
           <!-- /.box -->
            <div class="row">
   
-  
       <div class="col-md-12">
       <form method="post" action="php/backup.php">
-      <button type="submit" title="Backup my database" name="btn-submit" class="btn btn-primary btn-sm btn-block" style="font-family: arial;"><strong>BACKUP YOUR DATA</strong></button>
+      <button type="submit" title="Backup my database" id="backup" name="btn-submit" class="btn btn-primary btn-sm btn-block" style="font-family: arial;"><strong>BACKUP YOUR DATA</strong></button>
       </form>
           <!-- /.row -->
         </div>
@@ -872,6 +877,7 @@ $('#transac2').load('dr/dr_list/transac2.php');
         
 }
 </script>
+
  <script language="javascript" type="text/javascript">
 
 var timeout = setInterval(reloadChat, 10000);    

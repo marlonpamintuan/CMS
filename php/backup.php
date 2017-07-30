@@ -4,7 +4,9 @@
     $mysqlPassword      = "";
     $mysqlHostName      = "localhost";
     $DbName             = "cts";
-    
+    session_start();
+
+$userid = $_SESSION['session_userid'];
    //or add 5th parameter(array) of specific tables:    array("mytable1","mytable2","mytable3") for multiple tables
 
     Export_Database($mysqlHostName,$mysqlUserName,$mysqlPassword,$DbName,  $tables=false, $backup_name=false );
@@ -76,7 +78,9 @@
         $backup_name = $backup_name ? $backup_name : $name.".sql";
         header('Content-Type: application/octet-stream');   
         header("Content-Transfer-Encoding: Binary"); 
-        header("Content-disposition: attachment; filename=\"".$backup_name."(".date('H-i-s',strtotime('+6 hours'))."_".date('m-d-Y').")"."\"");  
-        echo $content; exit;
+        header("Content-disposition: attachment; filename=\"".$backup_name."(".date('H:i:s',strtotime('+6 hours'))."_".date('m-d-Y').")"."\"");  
+        echo $content; 
+      
+        exit;
     }
 ?>
