@@ -1,6 +1,6 @@
 <?php
 include "../basefunction/database_connection.php";
-date_default_timezone_set('Asia/Manila');
+include '../basefunction/timezone.php';
 $CYLINDER_DATECREATED = date("m-d-Y");
 $delete= mysqli_query($link,"DELETE a FROM cylinder_today a inner join cylinder b on a.CYLINDER_REFERENCEID = b.CYLINDER_REFERENCEID WHERE b.CYLINDER_STATUS='inactive' or b.CYLINDER_STATUS='throw' and a.CYLINDER_DATECREATED='$CYLINDER_DATECREATED'");
 if($delete)

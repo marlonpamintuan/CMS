@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include ('../../basefunction/timezone.php');
 session_start();
 
-$IR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));  
+$IR_DATEONLY = date("m-d-Y");  
 $userid = $_SESSION['session_userid'];
 $select = mysqli_query($link,"select * from user where USER_ID = '$userid'");
 $fetch = mysqli_fetch_array($select);
@@ -22,7 +23,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 if(isset($_REQUEST['delete_id']))
 {
   $request_id = $_REQUEST['delete_id'];
-  $IR_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $IR_DATEDELETED = date("m-d-Y H:i:s");
   $select = mysqli_query($link,"select * from ir where IR_ID ='$request_id'");
   $fetch = mysqli_fetch_array($select);
   $cyl_id = $fetch['CYLINDER_REFERENCEID'];

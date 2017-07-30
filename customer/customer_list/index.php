@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include ('../../basefunction/timezone.php');
 session_start();
 
 
@@ -10,7 +11,7 @@ $fetch = mysqli_fetch_array($select);
 $firstname = $fetch['USER_FIRSTNAME'];
 $lastname = $fetch['USER_LASTNAME'];
 $access = $fetch['USER_ACCESS'];
-$CUSTOMER_DATEONLY = date("m-d-Y", strtotime('+6 hours'));  
+$CUSTOMER_DATEONLY = date("m-d-Y");  
 
 if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
     header("location: ../../");
@@ -22,7 +23,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 	}
 if(isset($_REQUEST['delete_id']))
 {
-  $CUSTOMER_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $CUSTOMER_DATEDELETED = date("m-d-Y H:i:s");
   $select_user = mysqli_query($link,"select * from customer where CUSTOMER_ID =".$_REQUEST['delete_id']);
   $fetch = mysqli_fetch_array($select_user);
   $customer = $fetch['CUSTOMER_NAME'];

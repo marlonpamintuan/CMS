@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include '../../basefunction/timezone.php';
+
 session_start();
 
 
@@ -22,7 +24,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 
 //START OF QUERY , FOR DISPLAYING THE CUSTOMER NAME ADDRESS AND DATE IN PRINT
 
-$date_today = date("m/d/Y",strtotime('+6 hours'));
+$date_today = date("m/d/Y");
 //END
 
 

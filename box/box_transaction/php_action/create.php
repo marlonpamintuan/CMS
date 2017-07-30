@@ -3,7 +3,7 @@
 require_once '../../../basefunction/database_connection.php';
 require_once '../../../basefunction/security.php';
 //if form is submitted
-date_default_timezone_set('Asia/Manila');
+include ('../../../basefunction/timezone.php');
 	$BOXIN_BOXCODE2 = $_POST['BOXIN_BOXCODE2'];
 	$BOXIN_RDI2 = $_POST['BOXIN_RDI2'];
 $query = mysqli_query($link,"select * from boxin where BOXIN_RDI='$BOXIN_RDI2'");

@@ -6,8 +6,9 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 $date = security(date('m-d-Y',strtotime($_POST['date'])));
-$query = mysqli_query($link,"select * from audittrail inner join user ON audittrail.AUDITTRAIL_USER = user.USER_ID where audittrail.AUDITTRAIL_DATEONLY = '$date'");
+$query = mysqli_query($link,"select * from audittrail inner join user ON audittrail.AUDITTRAIL_USER = user.USER_ID where audittrail.AUDITTRAIL_DATEONLY = '$date' order by AUDITTRAIL_DATE DESC");
 if(mysqli_num_rows($query) < 0){
 echo 'done';
 }else{

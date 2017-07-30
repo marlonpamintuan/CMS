@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include '../../basefunction/timezone.php';
 session_start();
 
-$DATEONLY = date("m-d-Y", strtotime('+6 hours')); 
+$DATEONLY = date("m-d-Y"); 
 $userid = $_SESSION['session_userid'];
 $select = mysqli_query($link,"select * from user where USER_ID = '$userid'");
 $fetch = mysqli_fetch_array($select);
@@ -20,7 +21,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 	}
 if(isset($_REQUEST['delete_id']))
 {
-  $USER_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $USER_DATEDELETED = date("m-d-Y H:i:s");
   $select_user = mysqli_query($link,"select * from user where USER_ID =".$_REQUEST['delete_id']);
   $fetch = mysqli_fetch_array($select_user);
   $user = $fetch['USER_USERNAME'];

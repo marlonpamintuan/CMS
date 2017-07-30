@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include '../../basefunction/timezone.php';
+
 session_start();
 
 $userid = $_SESSION['session_userid'];
@@ -19,7 +21,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 		exit();
 	}
 
-$date_today = date("m/d/Y",strtotime('+6 hours'));
+$date_today = date("m/d/Y");
 //END
   $CYLINDER_ID = $_POST['CYLINDER_ID'];
 $query = "select * from trash WHERE CYLINDER_ID ='$CYLINDER_ID'";

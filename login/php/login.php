@@ -3,6 +3,7 @@
 	include ('../../basefunction/database_connection.php');
 	//This is for the security of the web
 	include ('../../basefunction/security.php');
+	include ('../../basefunction/timezone.php');
 	//This is for the start of the session
 	
 		
@@ -10,8 +11,8 @@
 
 	//login function
 
-		$logintime = date("m-d-Y H:i:s", strtotime('+6 hours'));
-		$login_dateonly = date("m-d-Y", strtotime('+6 hours'));		
+		$logintime = date("m-d-Y H:i:s");
+		$login_dateonly = date("m-d-Y");		
 		$USER_USERNAME = security($_POST['USER_USERNAME']);
 		$USER_PASSWORD = security($_POST['USER_PASSWORD']);
 		

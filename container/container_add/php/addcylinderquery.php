@@ -1,14 +1,15 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid = $_SESSION['session_userid'];
 $CYLINDER_REFERENCEID= security($_POST['CYLINDER_REFERENCEID']);
 $CYLINDER_DETAILS = security($_POST['CYLINDER_DETAILS']);
 $CONTAINER_TYPE = security($_POST['CONTAINER_TYPE']);
 
-$CYLINDER_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
-$CYLINDER_DATECREATED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$CYLINDER_DATEONLY = date("m-d-Y");	
+$CYLINDER_DATECREATED = date("m-d-Y H:i:s");
 $cylinderfetch=mysqli_query($link,"select * from cylinder where CYLINDER_REFERENCEID = '".$CYLINDER_REFERENCEID."' AND CYLINDER_STATUS = ''");
 $countfetch= mysqli_num_rows($cylinderfetch);
 $maintenancefetch=mysqli_query($link,"select * from cylinder where CYLINDER_REFERENCEID = '".$CYLINDER_REFERENCEID."' AND CYLINDER_STATUS = 'throw'");

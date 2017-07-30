@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include ('../../basefunction/timezone.php');
 session_start();
 
-$CYLINDER_DATEONLY = date("m-d-Y", strtotime('+6 hours'));  
+$CYLINDER_DATEONLY = date("m-d-Y");  
 
 $userid = $_SESSION['session_userid'];
 $select = mysqli_query($link,"select * from user where USER_ID = '$userid'");
@@ -22,7 +23,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 	}
 if(isset($_REQUEST['delete_id']))
 {
-  $CYLINDER_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $CYLINDER_DATEDELETED = date("m-d-Y H:i:s");
   $select_cylinder = mysqli_query($link,"select * from cylinder where CYLINDER_ID =".$_REQUEST['delete_id']);
   $fetch = mysqli_fetch_array($select_cylinder);
   $cylinder = $fetch['CYLINDER_REFERENCEID'];
@@ -45,7 +46,7 @@ if($audit_query){
   $SELECT_CYLINDERDETAILS = $fetch['CYLINDER_DETAILS'];
   $CONTAINER_TYPE = $fetch['CYLINDER_TYPE'];
  
-  $TRASH_DATECREATED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $TRASH_DATECREATED = date("m-d-Y H:i:s");
   $duplicate = mysqli_query($link,"select * from trash where CYLINDER_ID = '$SELECT_CYLINDERID' AND TRASH_STATUS =''");
   if(mysqli_num_rows($duplicate) > 0){
 ?><script>alert('Ooops can\'t add duplicate cylinder id');</script><?php

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include '../../basefunction/timezone.php';
+
 session_start();
-date_default_timezone_set('Asia/Manila');
 
 $userid = $_SESSION['session_userid'];
 $select = mysqli_query($link,"select * from user where USER_ID = '$userid'");
@@ -20,7 +21,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 		exit();
 	}
 
-$date_today = date("m/d/Y",strtotime('+6 hours'));
+$date_today = date("m/d/Y");
 //END
   $FROM = date('m-d-Y',strtotime($_POST['FROM']));
   $TO = date('m-d-Y',strtotime($_POST['TO']));

@@ -1,14 +1,15 @@
 <?php 
 
 require_once '../../../basefunction/database_connection.php';
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid = $_SESSION['session_userid'];
 $output = array('success' => false, 'messages' => array());
 $DR_ID = $_POST['DR_ID'];
 
 
-$DR_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
-$DR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));  
+$DR_DATEDELETED = date("m-d-Y H:i:s");
+$DR_DATEONLY = date("m-d-Y");  
   $select = mysqli_query($link,"select * from dr where DR_ID = {$DR_ID}");
   $fetch = mysqli_fetch_array($select);
   $cyl_id = $fetch['CYLINDER_REFERENCEID'];

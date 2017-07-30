@@ -1,6 +1,7 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include '../../../basefunction/timezone.php';
 session_start();
 $userid = $_SESSION['session_userid'];
 $CUSTOMER_ID = security($_POST['CUSTOMER_IDS']);
@@ -11,7 +12,7 @@ $TRANSACTION_DUEDATE = security(date('Y-m-d',strtotime($_POST['TRANSACTION_DUEDA
 $TRANSACTION_IRDATE = security(date('Y-m-d',strtotime($_POST['TRANSACTION_IRDATE'])));
 $TRANSACTION_IRDATE2 = date_create($TRANSACTION_IRDATE);
 $TRANSACTION_IRNO = security($_POST['TRANSACTION_IRNO']);
-$TRANSACTION_DATEMODIFIED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$TRANSACTION_DATEMODIFIED = date("m-d-Y H:i:s");
 $DAYS=date_diff($TRANSACTION_IRDATE2,$TRANSACTION_DRDATE2);
 $TRANSACTION_DAYS = $DAYS->format("%a");
 

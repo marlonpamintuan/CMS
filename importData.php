@@ -1,11 +1,12 @@
 <?php
 //load the database configuration file
 include "basefunction/database_connection.php";
+include 'basefunction/timezone.php';
 session_start();
 $userid = $_SESSION['session_userid'];
 date_default_timezone_set('UTC');
-        $upload_date= date("m-d-Y H:i:s", strtotime('+6 hours'));
-        $upload_dateonly = date("m-d-Y",strtotime('+6 hours'));    
+        $upload_date= date("m-d-Y H:i:s");
+        $upload_dateonly = date("m-d-Y");    
 if(isset($_POST['importSubmit'])){
     
     //validate whether uploaded file is a csv file

@@ -1,13 +1,14 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid=$_SESSION['session_userid'];
 $CYLINDER_REFERENCEID= $_POST['CYLINDER_REFERENCEID'];
-$CYLINDER_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$CYLINDER_DATEONLY = date("m-d-Y");	
 
 $TRASH_REASON= $_POST['TRASH_REASON'];
-$TRASH_DATECREATED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$TRASH_DATECREATED = date("m-d-Y H:i:s");
 foreach($CYLINDER_REFERENCEID as $j) {
 	$select = mysqli_query($link,"select * from cylinder where CYLINDER_REFERENCEID='$j'");
 	while($row = mysqli_fetch_array($select)){

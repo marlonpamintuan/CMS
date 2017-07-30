@@ -1,7 +1,8 @@
 <?php
 include "../basefunction/database_connection.php";
 include "../basefunction/security.php";
-$CYLINDER_DATECREATED2 = date("m-d-Y",strtotime('+6 hours'));
+include '../basefunction/timezone.php';
+$CYLINDER_DATECREATED2 = date("m-d-Y");
 $CONTAINER_DATE = $_POST['CONTAINER_DATE'];
 $CONTAINER_DATE2 = date('m-d-Y',strtotime($CONTAINER_DATE));
 $CYLINDER_REFERENCEID = $_POST['CYLINDER_REFERENCEID'];

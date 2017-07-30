@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include '../../basefunction/timezone.php';
+
 session_start();
 
 $userid = $_SESSION['session_userid'];
@@ -20,7 +22,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 	}
 if(isset($_REQUEST['delete_id']))
 {
-  $CUSTOMER_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $CUSTOMER_DATEDELETED = date("m-d-Y H:i:s");
   $delete_id = $_REQUEST['delete_id'];
   $delete_user = mysqli_query($link,"delete from cylinder_today where CYLINDER_DATECREATED ='$delete_id'");
 if($delete_user){

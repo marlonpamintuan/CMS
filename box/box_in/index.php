@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include ('../../basefunction/timezone.php');
 session_start();
 
-$IR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));  
+$IR_DATEONLY = date("m-d-Y");  
 $userid = $_SESSION['session_userid'];
 $select = mysqli_query($link,"select * from user where USER_ID = '$userid'");
 $fetch = mysqli_fetch_array($select);

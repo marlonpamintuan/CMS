@@ -2,7 +2,7 @@
 
 require_once '../../../basefunction/database_connection.php';
 require_once '../../../basefunction/security.php';
-
+include ('../../../basefunction/timezone.php');
 
 session_start();
 //if form is submitted
@@ -13,8 +13,8 @@ if($_POST) {
 //****************FORM
 
 $userid=$_SESSION['session_userid'];
-$DR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
-$DATE = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$DR_DATEONLY = date("m-d-Y");	
+$DATE = date("m-d-Y H:i:s");
 $CUSTOMER_ID = security($_POST['CUSTOMER_ID']);
 $DR_RETURNDATE = security(date('Y-m-d',strtotime($_POST['DR_RETURNDATE'])));
 $CYLINDER_REFERENCEID = $_POST['CYLINDER_REFERENCEID'];

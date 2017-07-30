@@ -1,10 +1,11 @@
 <?php
 include "../../../../basefunction/database_connection.php";
 include "../../../../basefunction/security.php";
+include ('../../../../basefunction/timezone.php');
 session_start();
 $userid=$_SESSION['session_userid'];
 $CYLINDER_REFERENCEID = $_POST['CYLINDER_REFERENCEID'];
-$DR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$DR_DATEONLY = date("m-d-Y");	
 $DR_NO = security($_POST['DR_NO']);
 $select = mysqli_query($link,"select * from dr where DR_NO ='$DR_NO'");
 $fetch = mysqli_fetch_array($select);
@@ -12,7 +13,7 @@ $CUSTOMER_ID = $fetch['CUSTOMER_ID'];
 $DR_STARTDATE = $fetch['DR_STARTDATE'];
 $DR_RETURNDATE = $fetch['DR_RETURNDATE'];
 $DR_DUE = $fetch['DR_DUE'];
-$DR_DATECREATED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$DR_DATECREATED = date("m-d-Y H:i:s");
 
 if(isset($_POST['track'])){
 if($DR_STARTDATE > $DR_RETURNDATE){

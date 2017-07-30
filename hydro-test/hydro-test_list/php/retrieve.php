@@ -1,11 +1,12 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid=$_SESSION['session_userid'];
 $CYLINDER_REFERENCEID= $_POST['CYLINDER_REFERENCEID'];
-$CYLINDER_DATERECOVER = date("m-d-Y H:i:s", strtotime('+6 hours'));
-$CYLINDER_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$CYLINDER_DATERECOVER = date("m-d-Y H:i:s");
+$CYLINDER_DATEONLY = date("m-d-Y");	
 foreach($CYLINDER_REFERENCEID as $j) {
 	$update = mysqli_query($link,"update cylinder set CYLINDER_STATUS='', CYLINDER_DATERECOVER='$CYLINDER_DATERECOVER' where CYLINDER_REFERENCEID='$j' and CYLINDER_STATUS ='throw'");
 

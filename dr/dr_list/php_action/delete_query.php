@@ -1,12 +1,13 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid=$_SESSION['session_userid'];
 $DR_NO = security($_POST['DR_NO']);
-$DR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$DR_DATEONLY = date("m-d-Y");	
 
-  $DR_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $DR_DATEDELETED = date("m-d-Y H:i:s");
 $select = mysqli_query($link,"select * from dr where DR_NO='$DR_NO'");
 while($row = mysqli_fetch_array($select)){
 $CYLINDER_REFERENCEID = $row['CYLINDER_REFERENCEID'];	

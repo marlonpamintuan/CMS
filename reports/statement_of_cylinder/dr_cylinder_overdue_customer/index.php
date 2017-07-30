@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once('../../../basefunction/database_connection.php');
+include '../../../basefunction/timezone.php';
 session_start();
 
 $userid = $_SESSION['session_userid'];
@@ -20,7 +21,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 	}
 if(isset($_REQUEST['delete_id']))
 {
-  $CUSTOMER_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $CUSTOMER_DATEDELETED = date("m-d-Y H:i:s");
  $sql_query="Update customer set CUSTOMER_STATUS='inactive',CUSTOMER_DATEDELETED='$CUSTOMER_DATEDELETED' WHERE CUSTOMER_ID=".$_REQUEST['delete_id'];
  mysqli_query($link,$sql_query);
  header("Location: $_SERVER[PHP_SELF]");
@@ -564,7 +565,7 @@ desired effect
 
           <div class="box box-success color-palette-box" style="overflow:auto;">
             <div class="box-header with-border ">
-      	   <h3 class="box-title"><i class="fa fa-flask text-success">&nbsp;</i>Statement of Containers All Overdue per Customer as of <font color="red"><?php echo date("m/d/Y",strtotime('+6 hours'));;?></font></h3>
+      	   <h3 class="box-title"><i class="fa fa-flask text-success">&nbsp;</i>Statement of Containers All Overdue per Customer as of <font color="red"><?php echo date("m/d/Y");;?></font></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

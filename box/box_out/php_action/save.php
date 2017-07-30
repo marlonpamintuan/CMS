@@ -1,7 +1,7 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
-date_default_timezone_set('Asia/Manila');
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid = $_SESSION['session_userid'];
 $BOXOUT_DUTYOPERATOR= security($_POST['BOXOUT_DUTYOPERATOR']);

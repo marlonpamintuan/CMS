@@ -1,6 +1,7 @@
 <?php
 include "../../../../basefunction/database_connection.php";
 include "../../../../basefunction/security.php";
+include ('../../../../basefunction/timezone.php');
 session_start();
 $userid=$_SESSION['session_userid'];
 $CYLINDER_REFERENCEID = $_POST['CYLINDER_REFERENCEID'];
@@ -9,8 +10,8 @@ $select = mysqli_query($link,"select * from ir where IR_NO ='$IR_NO'");
 $fetch = mysqli_fetch_array($select);
 $CUSTOMER_ID = $fetch['CUSTOMER_ID'];
 $IR_RETURNDATE = $fetch['IR_RETURNDATE'];
-$IR_DATECREATED = date("m-d-Y H:i:s", strtotime('+6 hours'));
-$IR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$IR_DATECREATED = date("m-d-Y H:i:s");
+$IR_DATEONLY = date("m-d-Y");	
 
 foreach($CYLINDER_REFERENCEID as $j) {
 $select_dr = mysqli_query($link,"select * from dr where CYLINDER_REFERENCEID = '$j'");

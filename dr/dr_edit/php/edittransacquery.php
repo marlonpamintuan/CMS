@@ -1,16 +1,17 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid=$_SESSION['session_userid'];
-$DR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$DR_DATEONLY = date("m-d-Y");	
 $CUSTOMER_ID = security($_POST['CUSTOMER_IDS']);
 $DR_ID = security($_POST['DR_ID']);
 $DR_NO = security($_POST['DR_NO']);
 $DR_NO_ORIG = security($_POST['DR_NO_ORIG']);
 $DR_STARTDATE = security(date('Y-m-d',strtotime($_POST['DR_STARTDATE'])));
 $DR_RETURNDATE = security(date('Y-m-d',strtotime($_POST['DR_RETURNDATE'])));
-$DR_DATEMODIFIED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$DR_DATEMODIFIED = date("m-d-Y H:i:s");
 $query= "update dr set DR_NO='$DR_NO_ORIG',CUSTOMER_ID='$CUSTOMER_ID',DR_STARTDATE='$DR_STARTDATE',DR_RETURNDATE='$DR_RETURNDATE',DR_DATEMODIFIED ='$DR_DATEMODIFIED' where DR_NO='$DR_NO'";
 $result = mysqli_query($link,$query);
 if($result){

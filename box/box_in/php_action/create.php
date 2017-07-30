@@ -2,7 +2,7 @@
 
 require_once '../../../basefunction/database_connection.php';
 require_once '../../../basefunction/security.php';
-
+include ('../../../basefunction/timezone.php');
 
 session_start();
 //if form is submitted
@@ -11,7 +11,7 @@ if($_POST) {
 	$validator = array('success' => false, 'messages' => array());
 
 //****************FORM
-date_default_timezone_set('Asia/Manila');
+
 //BOX IN
 $BOXIN_BOXCODE = $_POST['BOXIN_BOXCODE'];
 $BOXIN_DUTYOPERATOR = $_POST['BOXIN_DUTYOPERATOR'];

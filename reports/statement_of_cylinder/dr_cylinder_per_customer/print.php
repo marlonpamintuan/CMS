@@ -2,6 +2,7 @@
 <?php
 include_once('../../../basefunction/database_connection.php');
 include_once('../../../basefunction/security.php');
+include '../../../basefunction/timezone.php';
 session_start();
 
 
@@ -34,7 +35,7 @@ $query2 = "select * from dr inner join customer ON dr.CUSTOMER_ID = customer.CUS
 $fetch = mysqli_fetch_array($result2);
 $name_of_customer = $fetch['CUSTOMER_NAME'];
 $address_of_customer = $fetch['CUSTOMER_ADDRESS'];
-$date_today = date("m/d/Y",strtotime('+6 hours'));
+$date_today = date("m/d/Y");
 //END
 $CUSTOMER_NAMESEARCH= $_POST['CUSTOMER_NAME'];
 $query = "select * from dr inner join customer ON dr.CUSTOMER_ID = customer.CUSTOMER_ID WHERE customer.CUSTOMER_NAME = '$CUSTOMER_NAMESEARCH' AND DR_STATUS='' and dr.DR_STARTDATE <= '$TRANSACTION_DATE'";

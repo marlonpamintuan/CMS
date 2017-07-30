@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include '../../basefunction/timezone.php';
 session_start();
 
 
@@ -22,7 +23,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 
 //START OF QUERY , FOR DISPLAYING THE CUSTOMER NAME ADDRESS AND DATE IN PRINT
  
-$date_today = date("m/d/Y",strtotime('+6 hours'));
+$date_today = date("m/d/Y");
 
 $query = "select * from dr inner join ir ON ir.DR_NO = dr.DR_NO inner join customer ON dr.CUSTOMER_ID = customer.CUSTOMER_ID where dr.DR_STATUS='done' and IR_STATUS='' GROUP BY ir.IR_ID";
 $result = mysqli_query($link,$query);

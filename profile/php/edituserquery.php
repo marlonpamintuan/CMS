@@ -1,6 +1,8 @@
 <?php
 include "../../basefunction/database_connection.php";
 include "../../basefunction/security.php";
+include '../../basefunction/timezone.php';
+
 session_start();
 $userid=$_SESSION['session_userid'];
 $USER_FIRSTNAME = security($_POST['USER_FIRSTNAME']);
@@ -10,8 +12,8 @@ $USER_ID = security($_POST['USER_ID']);
 $USER_EMAIL = security($_POST['USER_EMAIL']);
 $USER_USERNAME = security($_POST['USER_USERNAME']);
 $USER_ACCESS = $_SESSION['session_access'];
-$USER_DATEMODIFIED = date("m-d-Y H:i:s", strtotime('+6 hours'));
-$USER_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$USER_DATEMODIFIED = date("m-d-Y H:i:s");
+$USER_DATEONLY = date("m-d-Y");	
 $select = mysqli_query($link,"select * from user where USER_ID='$userid'");
 $fetch = mysqli_fetch_array($select);
 $userfetch=mysqli_query($link,"select * from user where USER_USERNAME = '".$USER_USERNAME."'");

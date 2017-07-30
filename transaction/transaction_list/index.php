@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include '../../basefunction/timezone.php';
 session_start();
 
 
@@ -22,7 +23,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 if(isset($_REQUEST['delete_id']))
 {
   $delete_id = $_REQUEST['delete_id'];
-  $TRANSACTION_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $TRANSACTION_DATEDELETED = date("m-d-Y H:i:s");
  $sql_query="delete from dr inner join ir ";
  mysqli_query($link,$sql_query);
  header("Location: $_SERVER[PHP_SELF]");

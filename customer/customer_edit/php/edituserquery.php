@@ -1,6 +1,7 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 session_start();
 error_reporting(0);
 $userid= $_SESSION['session_userid'];
@@ -9,8 +10,8 @@ $CUSTOMER_CONTACTNUMBER = security($_POST['CUSTOMER_CONTACTNUMBER']);
 $CUSTOMER_EMAIL = security($_POST['CUSTOMER_EMAIL']);
 $CUSTOMER_ADDRESS = security($_POST['CUSTOMER_ADDRESS']);
 $CUSTOMER_ID = security($_POST['CUSTOMER_ID']);
-$CUSTOMER_DATEMODIFIED = date("m-d-Y H:i:s", strtotime('+6 hours'));
-$CUSTOMER_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$CUSTOMER_DATEMODIFIED = date("m-d-Y H:i:s");
+$CUSTOMER_DATEONLY = date("m-d-Y");	
 
 $userfetch=mysqli_query($link,"select * from customer where CUSTOMER_NAME= '".$CUSTOMER_NAME."'");
 $countfetch= mysqli_num_rows($userfetch);

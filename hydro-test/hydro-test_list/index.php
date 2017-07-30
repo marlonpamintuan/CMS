@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include ('../../basefunction/timezone.php');
 session_start();
 
 $DATEONLY = date("m-d-Y");
@@ -22,7 +23,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 if(isset($_REQUEST['delete_id']))
 {
   $delete_id=$_REQUEST['delete_id'];
-  $TRASH_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $TRASH_DATEDELETED = date("m-d-Y H:i:s");
  $sql_query="delete from hydro WHERE CYLINDER_ID=".$_REQUEST['delete_id'];
  $delete = mysqli_query($link,$sql_query);
  if($delete){
@@ -41,7 +42,7 @@ header("Location: $_SERVER[PHP_SELF]");
  }
 if(isset($_REQUEST['recover_id']))
 {
-  $CYLINDER_DATERECOVER = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $CYLINDER_DATERECOVER = date("m-d-Y H:i:s");
  $sql_query="Update cylinder set CYLINDER_STATUS='',CYLINDER_DATERECOVER='$CYLINDER_DATERECOVER' WHERE CYLINDER_REFERENCEID=".$_REQUEST['recover_id'];
  $recover=$_REQUEST['recover_id'];
  $result = mysqli_query($link,$sql_query);

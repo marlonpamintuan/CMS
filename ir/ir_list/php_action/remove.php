@@ -1,11 +1,11 @@
 <?php 
 
 require_once 'db_connect.php';
-
+include ('../../../basefunction/timezone.php');
 $output = array('success' => false, 'messages' => array());
 
 $memberId = $_POST['member_id'];
-$IR_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$IR_DATEDELETED = date("m-d-Y H:i:s");
 $sql = "Update ir set IR_STATUS='inactive',IR_DATEDELETED='$IR_DATEDELETED' WHERE IR_ID = {$memberId}";
 $query = $link->query($sql);
 if($query === TRUE) {

@@ -1,11 +1,12 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid=$_SESSION['session_userid'];
 $IR_NO = security($_POST['IR_NO']);
-$IR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
-  $IR_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$IR_DATEONLY = date("m-d-Y");	
+  $IR_DATEDELETED = date("m-d-Y H:i:s");
 $query = mysqli_query($link,"update ir set IR_STATUS='inactive', IR_DATEDELETED='$IR_DATEDELETED' where IR_STATUS='' and IR_NO='$IR_NO'");
 if($query){
 

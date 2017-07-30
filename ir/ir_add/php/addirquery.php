@@ -1,16 +1,17 @@
 <?php
 include "../../../basefunction/database_connection.php";
 include "../../../basefunction/security.php";
+include ('../../../basefunction/timezone.php');
 session_start();
 $userid=$_SESSION['session_userid'];
 $IR_NO = security($_POST['IR_NO']);
-$IR_DATEONLY = date("m-d-Y", strtotime('+6 hours'));	
+$IR_DATEONLY = date("m-d-Y");	
 $CUSTOMER_ID = security($_POST['CUSTOMER_ID']);
 $IR_RETURNDATE = security(date('Y-m-d',strtotime($_POST['IR_RETURNDATE'])));
 $IR_RETURNDATE2 = date_create($IR_RETURNDATE);
 $CYLINDER_REFERENCEID = $_POST['CYLINDER_REFERENCEID'];
-$IR_DATECREATED = date("m-d-Y H:i:s", strtotime('+6 hours'));
-$TRANSACTION_DATECREATED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+$IR_DATECREATED = date("m-d-Y H:i:s");
+$TRANSACTION_DATECREATED = date("m-d-Y H:i:s");
 $count_dr = mysqli_query($link,"select IR_NO,IR_STATUS from ir where IR_NO ='$IR_NO' and IR_STATUS !='inactive'");
 foreach ($CYLINDER_REFERENCEID as $cyl) {
 $validity = mysqli_query($link,"select * from dr where CUSTOMER_ID='$CUSTOMER_ID' and CYLINDER_REFERENCEID='$cyl'");

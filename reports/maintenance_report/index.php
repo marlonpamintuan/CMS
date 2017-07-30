@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 include_once('../../basefunction/database_connection.php');
+include '../../basefunction/timezone.php';
+
 session_start();
 
 
@@ -21,7 +23,7 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
 	}
 if(isset($_REQUEST['delete_id']))
 {
-  $CUSTOMER_DATEDELETED = date("m-d-Y H:i:s", strtotime('+6 hours'));
+  $CUSTOMER_DATEDELETED = date("m-d-Y H:i:s");
  $sql_query="Update customer set CUSTOMER_STATUS='inactive',CUSTOMER_DATEDELETED='$CUSTOMER_DATEDELETED' WHERE CUSTOMER_ID=".$_REQUEST['delete_id'];
  mysqli_query($link,$sql_query);
  header("Location: $_SERVER[PHP_SELF]");
