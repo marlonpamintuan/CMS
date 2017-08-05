@@ -536,14 +536,15 @@ desired effect
             <div class="col-md-12">
               
               <div class="form-group">
-                <label>Select Box</label>
-                <?php $querys = "select BOXOUT_BOXCODE from boxout";
+                <label>Select Box <font style="color:#dd4b39;font-size: 11px;">(FORMAT: CONTAINER NO. [CUSTOMER WHO BORROWED CONTAINER])</font></label>
+                <?php $querys = "select * from boxout inner join customer ON boxout.CUSTOMER_ID=customer.CUSTOMER_ID";
                 $result = mysqli_query($link,$querys);
                 ?>
                 <select class="form-control select2" data-placeholder="Select a Box" multiple="multiple" name="BOXIN_BOXCODE2[]" id="BOXIN_BOXCODE2" style="width: 100%;" required>
                 <?php while($row = mysqli_fetch_array($result)){
               $BOXOUT_BOXCODE = $row['BOXOUT_BOXCODE'];
-                ?> <option value="<?php echo $BOXOUT_BOXCODE;?>"><?php echo $BOXOUT_BOXCODE;?></option><?php
+               $CUSTOMER_NAME2 = $row['CUSTOMER_NAME'];
+                ?> <option value="<?php echo $BOXOUT_BOXCODE;?>"><?php echo $BOXOUT_BOXCODE.' &nbsp;[ '.$CUSTOMER_NAME2.' ]';?></option><?php
                 }?>
                
                 </select>

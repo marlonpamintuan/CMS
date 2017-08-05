@@ -583,14 +583,15 @@ if(!isset($_SESSION['session_userid']) || empty($_SESSION['session_userid'])) {
             <!-- /.col -->
             <div class="col-md-12">
               <div class="form-group">
-                <label>Select Container</label>
-                <?php $querys = "select * from dr where dr.DR_STATUS = ''";
+                <label>Select Container <font style="color:#dd4b39;font-size: 11px;">(FORMAT: CONTAINER NO. (CUSTOMER WHO BORROWED CONTAINER))</font></label>
+                <?php $querys = "select * from dr inner join customer ON dr.CUSTOMER_ID = customer.CUSTOMER_ID where dr.DR_STATUS = ''";
                 $result = mysqli_query($link,$querys);
                 ?>
                 <select class="form-control select2" data-placeholder="Select a Container" multiple="multiple" name="CYLINDER_REFERENCEID[]" style="width: 100%;" required>
                 <?php while($row = mysqli_fetch_array($result)){
               $CYLINDER_REFERENCEID = $row['CYLINDER_REFERENCEID'];
-                ?> <option value="<?php echo $CYLINDER_REFERENCEID;?>"><?php echo $CYLINDER_REFERENCEID;?></option><?php
+              $CUSTOMER_NAME = $row['CUSTOMER_NAME'];
+                ?> <option value="<?php echo $CYLINDER_REFERENCEID;?>"><?php echo $CYLINDER_REFERENCEID.' &nbsp;('.$CUSTOMER_NAME.')';?></option><?php
                 }?>
                
                 
